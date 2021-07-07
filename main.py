@@ -422,13 +422,19 @@ if __name__ == "__main__":
         trainer_config["distributed_backend"] = "ddp"
         for k in nondefault_trainer_args(opt):
             trainer_config[k] = getattr(opt, k)
-        if not "gpus" in trainer_config:
+        if not "gpus" or not "tpu_cores" in trainer_config:
             del trainer_config["distributed_backend"]
             cpu = True
-        else:
+        elif "gpus" in trainer_config:
             gpuinfo = trainer_config["gpus"]
             print(f"Running on GPUs {gpuinfo}")
             cpu = False
+        elif "tpu_cores" in trainer_config:
+            tpuinfo = trainer_config["tpu_cores"]
+            print(f"Running on {tpuinfo} TPUs")
+            cpu = False
+        else:
+            raise ValueError("Unable to detect configuration")
         trainer_opt = argparse.Namespace(**trainer_config)
         lightning_config.trainer = trainer_config
 
@@ -529,7 +535,10 @@ if __name__ == "__main__":
         # configure learning rate
         bs, base_lr = config.data.params.batch_size, config.model.base_learning_rate
         if not cpu:
-            ngpu = len(lightning_config.trainer.gpus.strip(",").split(','))
+            if "gpus" in trainer_config:
+                ngpu = len(lightning_config.trainer.gpus.strip(",").split(','))
+            else:
+                ngpu = int(lightning_config.trainer.tpu_cores)
         else:
             ngpu = 1
         accumulate_grad_batches = lightning_config.trainer.accumulate_grad_batches or 1
