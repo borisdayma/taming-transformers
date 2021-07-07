@@ -1,6 +1,6 @@
 ## Instructions for mini-DALLE project
 
-# Set up environment
+### Set up environment
 
 - [set up TPU VM](https://cloud.google.com/tpu/docs/pytorch-quickstart-tpu-vm)
 - `git clone -b feat-wandb git@github.com:borisdayma/taming-transformers.git`
@@ -9,7 +9,7 @@
 - `pip install -e .`
 - `wandb login`
 
-# Set up data & model
+### Set up data & model
 
 - have a folder that contains:
 
