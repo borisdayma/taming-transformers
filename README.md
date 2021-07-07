@@ -37,3 +37,5 @@
 
   - on TPU: `python main.py --base configs/dalle_vqgan.yaml -t True --tpu_cores 8`
   - on GPU: `python main.py --base configs/dalle_vqgan.yaml -t True --gpus 0,` or `--gpus 0,1,`, etc (don't forget the last `,`)
+
+  Note: depending on the time per epoch, we can adjust (it uses a default of 1000 epochs with auto logging of top 3 models based on `val/rec_loss`)
