@@ -477,7 +477,6 @@ if __name__ == "__main__":
             print(f"Monitoring {model.monitor} as checkpoint metric.")
             default_modelckpt_cfg["params"]["monitor"] = model.monitor
             default_modelckpt_cfg["params"]["save_top_k"] = 3
-            del default_modelckpt_cfg["params"]["save_last"]
 
         modelckpt_cfg = lightning_config.modelcheckpoint or OmegaConf.create()
         modelckpt_cfg = OmegaConf.merge(default_modelckpt_cfg, modelckpt_cfg)
