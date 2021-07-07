@@ -450,7 +450,7 @@ if __name__ == "__main__":
                 "target": "pytorch_lightning.loggers.WandbLogger",
                 "params": {
                     "name": nowname,
-                    "log_model": False,
+                    "log_model": 'all',
                     "offline": opt.debug,
                     "id": nowname,
                     "project": 'hf-flax-dalle-mini',
