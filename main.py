@@ -418,15 +418,14 @@ if __name__ == "__main__":
         lightning_config = config.pop("lightning", OmegaConf.create())
         # merge trainer cli with config
         trainer_config = lightning_config.get("trainer", OmegaConf.create())
-        # default to ddp
-        trainer_config["distributed_backend"] = "ddp"
         for k in nondefault_trainer_args(opt):
             trainer_config[k] = getattr(opt, k)
         if not "gpus" or not "tpu_cores" in trainer_config:
-            del trainer_config["distributed_backend"]
             cpu = True
         elif "gpus" in trainer_config:
             gpuinfo = trainer_config["gpus"]
+            # default to ddp
+            trainer_config["distributed_backend"] = "ddp"
             print(f"Running on GPUs {gpuinfo}")
             cpu = False
         elif "tpu_cores" in trainer_config:
