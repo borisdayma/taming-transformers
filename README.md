@@ -3,7 +3,7 @@
 ### Set up environment
 
 - [set up TPU VM](https://cloud.google.com/tpu/docs/pytorch-quickstart-tpu-vm)
-- `git clone -b feat-wandb git@github.com:borisdayma/taming-transformers.git`
+- `git clone -b feat-wandb https://github.com/borisdayma/taming-transformers.git`
 - `conda env create -f environment.yaml`
 - `conda activate taming`
 - `pip install -e .`
