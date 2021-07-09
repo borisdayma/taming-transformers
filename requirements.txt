@@ -10,3 +10,4 @@ git+https://github.com/pytorchlightning/pytorch-lightning.git
 einops
 test-tube
 wandb
+omegaconf==2.0.0
