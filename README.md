@@ -4,7 +4,7 @@
 
 - [set up TPU VM](https://cloud.google.com/tpu/docs/pytorch-quickstart-tpu-vm) - Does not seem to work on TPU
 - `git clone -b feat-wandb https://github.com/borisdayma/taming-transformers.git`
-- `pip install requirements.txt`
+- `pip install -r requirements.txt`
 - `wandb login`
 
 ### Set up data & model
