@@ -2,11 +2,9 @@
 
 ### Set up environment
 
-- [set up TPU VM](https://cloud.google.com/tpu/docs/pytorch-quickstart-tpu-vm)
+- [set up TPU VM](https://cloud.google.com/tpu/docs/pytorch-quickstart-tpu-vm) - Does not seem to work on TPU
 - `git clone -b feat-wandb https://github.com/borisdayma/taming-transformers.git`
-- `conda env create -f environment.yaml`
-- `conda activate taming`
-- `pip install -e .`
+- `pip install requirements.txt`
 - `wandb login`
 
 ### Set up data & model

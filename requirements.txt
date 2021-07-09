@@ -1,0 +1,12 @@
+torch
+torchvision
+numpy
+albumentations
+opencv-python
+pudb
+imageio
+imageio-ffmpeg
+git+https://github.com/pytorchlightning/pytorch-lightning.git
+einops
+test-tube
+wandb
